@@ -1,16 +1,14 @@
 from flask import Flask
-from flask import request, jsonify, send_from_directory, render_template
-from random import sample
+from flask import render_template
 
-server = Flask(__name__)
+server = Flask(
+    __name__,
+    static_folder=r"static"
+)
 
-def run_request():
-    index = int(request.json['index'])
-    list = ['red', 'green', 'blue', 'yellow', 'black']
-    return list[index]
+print(server.template_folder)
 
 @server.route('/', methods=['GET', 'POST'])
 def hello_world():
     return render_template("soren.html")
-
 
