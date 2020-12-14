@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request, jsonify, send_from_directory
+from flask import request, jsonify, send_from_directory, render_template
 from random import sample
 
 server = Flask(__name__)
@@ -11,5 +11,6 @@ def run_request():
 
 @server.route('/', methods=['GET', 'POST'])
 def hello_world():
-    return send_from_directory("", "soren.html")
+    return render_template("soren.html")
+
 
